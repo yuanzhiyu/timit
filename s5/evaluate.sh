@@ -18,8 +18,13 @@
 guss_num=512
 ivector_dim=200
 lda_dim=50
-nj=1
+nj=6
 exp=exp/ivector_gauss${guss_num}_dim${ivector_dim}
+
+rm -rf $exp/ivector_enroll
+rm -rf $exp/ivector_eval
+rm -rf exp/make_mfcc/test
+rm -rf data/
 
 set -e # exit on error
 
@@ -31,6 +36,9 @@ local/timit_data_prep.sh ./timit_sre/wav
 
 mfccdir=mfcc
 for x in train test; do
+  if [ "$x" == "train" ] && [ -d "exp/make_mfcc/$x" ]; then
+      continue
+  fi
   steps/make_mfcc.sh --cmd "$train_cmd" --nj $nj data/$x exp/make_mfcc/$x $mfccdir
   sid/compute_vad_decision.sh --nj $nj --cmd "$train_cmd" data/$x exp/make_mfcc/$x $mfccdir
   utils/fix_data_dir.sh data/$x
@@ -48,8 +56,10 @@ utils/fix_data_dir.sh data/test/eval
 
 ###### Bookmark: i-vector extraction ######
 #extract train ivector
-sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
-  $exp/extractor data/train $exp/ivector_train
+if [ ! -d "$exp/ivector_train" ]; then
+  sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
+    $exp/extractor data/train $exp/ivector_train
+fi
 #extract enroll ivector
 sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
   $exp/extractor data/test/enroll  $exp/ivector_enroll
@@ -63,22 +73,13 @@ sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
 local/cosine_scoring.sh data/test/enroll data/test/eval \
   $exp/ivector_enroll $exp/ivector_eval $trials $exp/scores
 
-echo "cosine scores:"
-cat $exp/scores/cosine_scores
-
 # cosine scoring after reducing the i-vector dim with LDA
 local/lda_scoring.sh data/train data/test/enroll data/test/eval \
   $exp/ivector_train $exp/ivector_enroll $exp/ivector_eval $trials $exp/scores $lda_dim
 
-echo "lda_scores:"
-cat $exp/scores/lda_scores
-
 # cosine scoring after reducing the i-vector dim with PLDA
 local/plda_scoring.sh data/train data/test/enroll data/test/eval \
   $exp/ivector_train $exp/ivector_enroll $exp/ivector_eval $trials $exp/scores
-
-echo "plda_scores:"
-cat $exp/scores/plda_scores
 
 # print eer
 for i in cosine lda plda; do

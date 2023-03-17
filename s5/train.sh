@@ -15,6 +15,9 @@
 . ./cmd.sh
 . ./path.sh
 
+rm -rf exp/
+rm -rf data/
+
 guss_num=512
 ivector_dim=200
 lda_dim=50
