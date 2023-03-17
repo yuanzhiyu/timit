@@ -1,0 +1,8 @@
+# compute-vad --config=conf/vad.conf scp:data/test/split10/6/feats.scp ark,scp:/home/zerol/kaldi/egs/timit/s5/mfcc/vad_test.6.ark,/home/zerol/kaldi/egs/timit/s5/mfcc/vad_test.6.scp 
+# Started at Thu Mar 16 00:50:50 CST 2023
+#
+compute-vad --config=conf/vad.conf scp:data/test/split10/6/feats.scp ark,scp:/home/zerol/kaldi/egs/timit/s5/mfcc/vad_test.6.ark,/home/zerol/kaldi/egs/timit/s5/mfcc/vad_test.6.scp 
+LOG (compute-vad[5.5.1068~2-59299]:main():compute-vad.cc:95) Applied energy based voice activity detection; processed 170 utterances successfully; 0 had empty features, and 0 were completely unvoiced.
+LOG (compute-vad[5.5.1068~2-59299]:main():compute-vad.cc:99) Proportion of voiced frames was 0.7754 over 50236 frames.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Thu Mar 16 00:50:50 CST 2023, elapsed time 0 seconds

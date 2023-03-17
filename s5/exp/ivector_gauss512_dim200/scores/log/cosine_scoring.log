@@ -1,0 +1,11 @@
+# cat data/test/test.trials | awk '{print $1" "$2}' | ivector-compute-dot-products - scp:exp/ivector_gauss512_dim200/ivector_enroll/spk_ivector.scp "ark:ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_eval/ivector.scp ark:- |" exp/ivector_gauss512_dim200/scores/cosine_scores 
+# Started at Thu Mar 16 14:04:52 CST 2023
+#
+ivector-compute-dot-products - scp:exp/ivector_gauss512_dim200/ivector_enroll/spk_ivector.scp 'ark:ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_eval/ivector.scp ark:- |' exp/ivector_gauss512_dim200/scores/cosine_scores 
+ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_eval/ivector.scp ark:- 
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:90) Processed 30 iVectors.
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:94) Average ratio of iVector to expected length was 0.727533, standard deviation was 0.0919913
+LOG (ivector-compute-dot-products[5.5.1068~2-59299]:main():ivector-compute-dot-products.cc:108) Mean dot-product was 73.4752, standard deviation was 28.9508
+LOG (ivector-compute-dot-products[5.5.1068~2-59299]:main():ivector-compute-dot-products.cc:111) Processed 900 trials 0 had errors.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Thu Mar 16 14:04:52 CST 2023, elapsed time 0 seconds

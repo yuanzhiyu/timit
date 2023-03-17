@@ -1,0 +1,43 @@
+# ivector-compute-plda ark:data/train/spk2utt "ark:ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_train/ivector.scp  ark:- |" exp/ivector_gauss512_dim200/ivector_train/plda 
+# Started at Thu Mar 16 14:04:52 CST 2023
+#
+ivector-compute-plda ark:data/train/spk2utt 'ark:ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_train/ivector.scp  ark:- |' exp/ivector_gauss512_dim200/ivector_train/plda 
+ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_train/ivector.scp ark:- 
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:90) Processed 4620 iVectors.
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:94) Average ratio of iVector to expected length was 0.969941, standard deviation was 0.12078
+LOG (ivector-compute-plda[5.5.1068~2-59299]:main():ivector-compute-plda.cc:109) Accumulated stats from 462 speakers (0 with no utterances), consisting of 4620 utterances (0 absent from input).
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 0 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 172.936
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 55.8798
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 1 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 168.238
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 43.5337
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 2 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.595
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 39.3327
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 3 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.54
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 37.2499
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 4 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.579
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 36.0302
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 5 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.632
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 35.2394
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 6 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.684
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 34.689
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 7 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.731
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 34.2854
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 8 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.771
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 33.9775
+LOG (ivector-compute-plda[5.5.1068~2-59299]:Estimate():plda.cc:529) Plda estimation iteration 9 of 10
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:511) Trace of within-class variance is 167.807
+LOG (ivector-compute-plda[5.5.1068~2-59299]:EstimateFromStats():plda.cc:512) Trace of between-class variance is 33.7351
+LOG (ivector-compute-plda[5.5.1068~2-59299]:GetOutput():plda.cc:540) Norm of mean of iVector distribution is 0.088212
+LOG (ivector-compute-plda[5.5.1068~2-59299]:GetOutput():plda.cc:577) Diagonal of between-class variance in normalized space is  [ 22.703 8.31044 6.42891 4.63556 3.84188 3.46607 3.01052 2.44859 1.96784 1.85825 1.79947 1.60493 1.54219 1.35079 1.3067 1.20237 1.18133 1.14476 1.11693 1.00656 0.940121 0.912105 0.879109 0.79678 0.780726 0.717818 0.702602 0.66307 0.643571 0.566853 0.557488 0.536471 0.515147 0.481942 0.473774 0.440742 0.425041 0.414804 0.395738 0.379573 0.368516 0.35604 0.348219 0.334049 0.314656 0.298014 0.286208 0.282226 0.276362 0.25928 0.256851 0.249163 0.244266 0.240292 0.232202 0.227444 0.223415 0.219116 0.210202 0.203739 0.201548 0.197887 0.192205 0.189639 0.185657 0.184541 0.182222 0.174968 0.168695 0.165433 0.16393 0.157446 0.156105 0.149865 0.144469 0.137738 0.135418 0.1332 0.131073 0.126045 0.125448 0.12037 0.117213 0.113544 0.110179 0.109745 0.105983 0.104769 0.0986535 0.0975642 0.0936428 0.0919396 0.0902132 0.0886858 0.0861065 0.0833335 0.0792109 0.0780288 0.0772492 0.0742463 0.0741171 0.072159 0.0713901 0.0676396 0.0665088 0.0632589 0.0620381 0.060528 0.0599828 0.0595353 0.0556769 0.0535858 0.0533589 0.0527381 0.052352 0.050771 0.0496783 0.0477359 0.0466389 0.0454647 0.0452134 0.0444496 0.0428794 0.0421988 0.041414 0.0401487 0.0392177 0.0377068 0.0364855 0.0360505 0.0358784 0.0348773 0.0340169 0.033257 0.032525 0.0323844 0.0313304 0.0306025 0.03 0.0295836 0.0287078 0.0281728 0.0274077 0.0269027 0.0267407 0.0260913 0.0259359 0.0257287 0.0249128 0.0243741 0.023847 0.0234111 0.0230874 0.0228807 0.0225194 0.0222403 0.0216358 0.0213383 0.021016 0.0205611 0.0202672 0.0200948 0.0199312 0.0197937 0.0193246 0.0189839 0.0189023 0.0184717 0.0182419 0.0178702 0.0175871 0.0175124 0.0174729 0.0170923 0.0170069 0.0166596 0.016418 0.0161485 0.0159369 0.0156786 0.0155924 0.0150822 0.015004 0.0149425 0.0146507 0.0145556 0.0144315 0.0142438 0.0140872 0.013721 0.0134903 0.0134382 0.0133724 0.013233 0.0130089 0.0127636 0.0126619 0.012393 0.0110779 0.0108199 ]
+
+# Accounting: time=1 threads=1
+# Ended (code 0) at Thu Mar 16 14:04:53 CST 2023, elapsed time 1 seconds

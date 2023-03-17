@@ -1,0 +1,1000 @@
+# gmm-gselect --n=20 "fgmm-global-to-gmm exp/ivector_gauss512_dim200/extractor/final.ubm -|" "ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- |" ark:- | fgmm-global-gselect-to-post --min-post=0.025 exp/ivector_gauss512_dim200/extractor/final.ubm "ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- |" ark,s,cs:- ark:- | scale-post ark:- 1.0 ark:- | ivector-extract --verbose=2 --num-threads=1 exp/ivector_gauss512_dim200/extractor/final.ie "ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- |" ark,s,cs:- ark,scp,t:exp/ivector_gauss512_dim200/ivector_train/ivector.9.ark,exp/ivector_gauss512_dim200/ivector_train/ivector.9.scp 
+# Started at Thu Mar 16 00:50:51 CST 2023
+#
+fgmm-global-gselect-to-post --min-post=0.025 exp/ivector_gauss512_dim200/extractor/final.ubm 'ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- |' ark,s,cs:- ark:- 
+ivector-extract --verbose=2 --num-threads=1 exp/ivector_gauss512_dim200/extractor/final.ie 'ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- |' ark,s,cs:- ark,scp,t:exp/ivector_gauss512_dim200/ivector_train/ivector.9.ark,exp/ivector_gauss512_dim200/ivector_train/ivector.9.scp 
+gmm-gselect --n=20 'fgmm-global-to-gmm exp/ivector_gauss512_dim200/extractor/final.ubm -|' 'ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- |' ark:- 
+scale-post ark:- 1.0 ark:- 
+add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- 
+LOG (ivector-extract[5.5.1068~2-59299]:ComputeDerivedVars():ivector-extractor.cc:183) Computing derived variables for iVector extractor
+fgmm-global-to-gmm exp/ivector_gauss512_dim200/extractor/final.ubm - 
+select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- 
+apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- 
+LOG (fgmm-global-to-gmm[5.5.1068~2-59299]:main():fgmm-global-to-gmm.cc:58) Written diagonal GMM to -
+select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- 
+add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- 
+apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- 
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 0'th file, average UBM likelihood over 132 frames is -105.995
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 10'th file, average UBM likelihood over 181 frames is -101.226
+LOG (ivector-extract[5.5.1068~2-59299]:ComputeDerivedVars():ivector-extractor.cc:204) Done.
+add-deltas --delta-window=3 --delta-order=2 scp:data/train/split10/9/feats.scp ark:- 
+apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- 
+select-voiced-frames ark:- scp,s,cs:data/train/split10/9/vad.scp ark:- 
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 20'th file, average UBM likelihood over 235 frames is -97.2064
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W00 was 17.7937 per frame over 132 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W00 was 16.4556
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W01 was 14.7246 per frame over 306 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W01 was 15.3929
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W02 was 15.9773 per frame over 235 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W02 was 16.2461
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W03 was 16.2065 per frame over 294 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W03 was 16.2229
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W04 was 28.9802 per frame over 268 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W04 was 15.8639
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W05 was 13.7725 per frame over 298 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W05 was 14.484
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W06 was 27.2426 per frame over 83 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W06 was 14.7741
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W07 was 17.0753 per frame over 134 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W07 was 16.4385
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W08 was 14.0777 per frame over 368 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W08 was 15.8315
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0371W09 was 18.1793 per frame over 218 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0371W09 was 14.7327
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W00 was 13.5926 per frame over 181 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W00 was 13.7471
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W01 was 12.0796 per frame over 286 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W01 was 13.334
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 30'th file, average UBM likelihood over 232 frames is -99.6089
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W02 was 15.8554 per frame over 330 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W02 was 14.3789
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W03 was 15.7105 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W03 was 13.2011
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W04 was 9.04807 per frame over 202 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W04 was 12.5921
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W05 was 16.1424 per frame over 276 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W05 was 12.2911
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W06 was 10.2745 per frame over 177 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W06 was 11.853
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W07 was 13.9956 per frame over 201 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W07 was 13.5277
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W08 was 7.17056 per frame over 302 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W08 was 11.7906
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 40'th file, average UBM likelihood over 187 frames is -99.2194
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0372W09 was 11.9166 per frame over 185 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0372W09 was 11.557
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W00 was 13.0885 per frame over 235 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W00 was 11.6413
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W01 was 14.98 per frame over 288 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W01 was 13.9552
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W02 was 12.9836 per frame over 204 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W02 was 12.8979
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W03 was 16.1717 per frame over 325 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W03 was 11.7375
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W04 was 10.2311 per frame over 294 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W04 was 11.8917
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W05 was 9.48154 per frame over 167 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W05 was 11.9088
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W06 was 20.7959 per frame over 294 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W06 was 13.7196
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W07 was 12.9485 per frame over 309 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W07 was 15.1849
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 50'th file, average UBM likelihood over 110 frames is -98.4888
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W08 was 11.4075 per frame over 228 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W08 was 12.3987
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0373W09 was 13.5861 per frame over 218 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0373W09 was 11.3978
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W00 was 13.8192 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W00 was 13.1237
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W01 was 13.3297 per frame over 128 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W01 was 13.4919
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W02 was 11.0934 per frame over 210 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W02 was 14.5972
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W03 was 19.563 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W03 was 14.0761
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W04 was 12.0602 per frame over 230 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W04 was 13.4037
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W05 was 11.6766 per frame over 181 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W05 was 13.1389
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W06 was 13.0802 per frame over 255 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W06 was 14.6411
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W07 was 15.3741 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W07 was 17.2555
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W08 was 10.963 per frame over 210 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W08 was 13.8566
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 60'th file, average UBM likelihood over 295 frames is -97.0179
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0374W09 was 15.023 per frame over 213 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0374W09 was 12.864
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W00 was 12.1534 per frame over 187 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W00 was 12.766
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W01 was 10.795 per frame over 179 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W01 was 12.9844
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W02 was 13.6458 per frame over 94 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W02 was 11.8305
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W03 was 9.81632 per frame over 202 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W03 was 13.4103
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W04 was 13.3016 per frame over 212 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W04 was 13.0679
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W05 was 14.0156 per frame over 228 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W05 was 12.3147
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W06 was 11.2351 per frame over 243 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W06 was 14.4498
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W07 was 11.6688 per frame over 159 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W07 was 13.6735
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W08 was 10.0859 per frame over 301 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W08 was 13.3622
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0375W09 was 14.3219 per frame over 154 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0375W09 was 13.3011
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W00 was 18.223 per frame over 110 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W00 was 15.8766
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 70'th file, average UBM likelihood over 170 frames is -101.234
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W01 was 15.4195 per frame over 229 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W01 was 15.509
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W02 was 22.125 per frame over 360 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W02 was 18.0837
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W03 was 30.2955 per frame over 278 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W03 was 15.3278
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W04 was 23.0089 per frame over 182 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W04 was 19.3282
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W05 was 16.4068 per frame over 291 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W05 was 15.7519
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W06 was 17.7984 per frame over 143 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W06 was 15.9116
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W07 was 24.6204 per frame over 334 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W07 was 17.3901
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W08 was 18.1557 per frame over 218 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W08 was 17.2428
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0376W09 was 21.8682 per frame over 216 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0376W09 was 16.3266
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 80'th file, average UBM likelihood over 236 frames is -105.608
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W00 was 16.3062 per frame over 295 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W00 was 12.2096
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W01 was 10.0125 per frame over 402 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W01 was 11.3243
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W02 was 11.0421 per frame over 220 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W02 was 11.9128
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W03 was 10.8459 per frame over 197 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W03 was 11.0037
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W04 was 9.85454 per frame over 178 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W04 was 12.7866
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W05 was 16.0507 per frame over 281 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W05 was 11.0946
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W06 was 10.7468 per frame over 290 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W06 was 11.1727
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W07 was 10.4133 per frame over 200 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W07 was 12.4891
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 90'th file, average UBM likelihood over 125 frames is -95.7352
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W08 was 12.0604 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W08 was 12.8445
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0377W09 was 12.0862 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0377W09 was 11.1007
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W00 was 13.3196 per frame over 170 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W00 was 15.1491
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W01 was 8.89836 per frame over 272 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W01 was 12.262
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W02 was 16.8618 per frame over 187 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W02 was 13.601
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W03 was 11.9913 per frame over 393 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W03 was 14.0961
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W04 was 8.23645 per frame over 230 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W04 was 10.9611
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W05 was 16.7894 per frame over 239 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W05 was 14.5929
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W06 was 19.0579 per frame over 257 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W06 was 13.8736
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 100'th file, average UBM likelihood over 302 frames is -97.8531
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W07 was 7.33584 per frame over 216 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W07 was 11.9903
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W08 was 13.2725 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W08 was 12.8096
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0378W09 was 9.15981 per frame over 213 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0378W09 was 12.5246
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W00 was 13.232 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W00 was 15.7823
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W01 was 14.1679 per frame over 122 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W01 was 16.1334
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W02 was 15.705 per frame over 192 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W02 was 16.7904
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W03 was 12.6766 per frame over 315 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W03 was 15.53
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W04 was 12.1615 per frame over 227 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W04 was 15.5789
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W05 was 20.1202 per frame over 188 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W05 was 17.2387
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W06 was 18.7846 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W06 was 16.3918
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W07 was 21.2481 per frame over 82 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W07 was 16.5505
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W08 was 20.9645 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W08 was 15.1526
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0379W09 was 19.9931 per frame over 168 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0379W09 was 16.0336
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W00 was 20.7994 per frame over 125 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W00 was 12.6709
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 110'th file, average UBM likelihood over 202 frames is -99.5907
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W01 was 9.84128 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W01 was 12.7894
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W02 was 13.9452 per frame over 343 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W02 was 14.7156
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W03 was 20.1315 per frame over 259 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W03 was 13.3068
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W04 was 11.0382 per frame over 168 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W04 was 14.0886
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W05 was 10.3217 per frame over 375 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W05 was 12.8766
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W06 was 8.54582 per frame over 261 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W06 was 12.5625
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W07 was 9.65514 per frame over 140 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W07 was 11.4425
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W08 was 9.45346 per frame over 221 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W08 was 11.0735
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0380W09 was 13.7662 per frame over 221 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0380W09 was 13.126
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 120'th file, average UBM likelihood over 150 frames is -100.468
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W00 was 8.9515 per frame over 302 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W00 was 10.9618
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W01 was 9.20466 per frame over 290 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W01 was 11.4813
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W02 was 11.0188 per frame over 249 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W02 was 12.2961
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W03 was 11.063 per frame over 221 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W03 was 11.9846
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W04 was 10.2761 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W04 was 11.3726
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W05 was 17.2796 per frame over 305 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W05 was 12.0592
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W06 was 10.973 per frame over 251 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W06 was 11.1832
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W07 was 10.2222 per frame over 268 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W07 was 12.4271
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W08 was 8.88198 per frame over 441 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W08 was 10.5897
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0381W09 was 13.4588 per frame over 228 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0381W09 was 11.7834
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 130'th file, average UBM likelihood over 222 frames is -98.6152
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W00 was 12.4124 per frame over 202 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W00 was 14.6303
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W01 was 18.6329 per frame over 146 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W01 was 15.0371
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W02 was 11.2127 per frame over 312 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W02 was 13.9389
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W03 was 11.4524 per frame over 178 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W03 was 14.0694
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W04 was 14.6736 per frame over 168 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W04 was 15.0042
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W05 was 20.4651 per frame over 258 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W05 was 13.6374
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W06 was 10.9747 per frame over 205 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W06 was 12.4493
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W07 was 12.8674 per frame over 180 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W07 was 13.291
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W08 was 9.30768 per frame over 326 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W08 was 12.1656
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 140'th file, average UBM likelihood over 184 frames is -98.5067
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0382W09 was 18.0144 per frame over 177 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0382W09 was 12.9602
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W00 was 8.54734 per frame over 150 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W00 was 12.2701
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W01 was 11.2414 per frame over 262 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W01 was 12.244
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W02 was 16.2914 per frame over 118 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W02 was 14.4006
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W03 was 17.9035 per frame over 245 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W03 was 14.3617
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W04 was 14.0235 per frame over 142 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W04 was 12.2903
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W05 was 9.4635 per frame over 167 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W05 was 12.8389
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W06 was 12.098 per frame over 284 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W06 was 12.8628
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W07 was 13.7531 per frame over 179 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W07 was 12.2239
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W08 was 9.49604 per frame over 400 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W08 was 14.4506
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0383W09 was 13.4492 per frame over 176 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0383W09 was 14.1111
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W00 was 12.3713 per frame over 222 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W00 was 13.9824
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 150'th file, average UBM likelihood over 234 frames is -100.924
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W01 was 20.7372 per frame over 176 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W01 was 15.2561
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W02 was 11.691 per frame over 189 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W02 was 13.8355
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W03 was 10.4895 per frame over 353 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W03 was 12.4954
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W04 was 11.5343 per frame over 271 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W04 was 14.1369
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W05 was 18.4852 per frame over 295 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W05 was 12.9632
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W06 was 16.3784 per frame over 189 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W06 was 15.3908
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W07 was 12.5032 per frame over 324 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W07 was 11.9789
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W08 was 15.653 per frame over 207 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W08 was 12.1748
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0384W09 was 16.9127 per frame over 215 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0384W09 was 16.745
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W00 was 19.9627 per frame over 184 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W00 was 14.5666
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 160'th file, average UBM likelihood over 220 frames is -101.896
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W01 was 16.6709 per frame over 377 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W01 was 13.7769
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W02 was 17.4574 per frame over 224 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W02 was 14.7734
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W03 was 21.1306 per frame over 166 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W03 was 15.2388
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W04 was 12.1109 per frame over 239 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W04 was 12.9748
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W05 was 28.8177 per frame over 301 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W05 was 14.6291
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W06 was 21.9792 per frame over 177 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W06 was 16.2263
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W07 was 12.2688 per frame over 385 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W07 was 13.4014
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W08 was 14.6709 per frame over 187 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W08 was 13.6457
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0385W09 was 18.5302 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0385W09 was 13.0516
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 170'th file, average UBM likelihood over 252 frames is -95.5761
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W00 was 13.5059 per frame over 234 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W00 was 14.8534
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W01 was 12.2943 per frame over 363 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W01 was 14.2383
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W02 was 27.2156 per frame over 187 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W02 was 18.4006
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W03 was 14.2207 per frame over 210 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W03 was 14.9107
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W04 was 16.3837 per frame over 177 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W04 was 14.5892
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W05 was 21.3465 per frame over 259 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W05 was 14.7163
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W06 was 18.9844 per frame over 188 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W06 was 15.7581
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W07 was 11.9891 per frame over 333 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W07 was 15.1138
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W08 was 19.8251 per frame over 227 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W08 was 16.6543
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 180'th file, average UBM likelihood over 165 frames is -99.4068
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0386W09 was 19.3887 per frame over 214 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0386W09 was 13.9895
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W00 was 18.4272 per frame over 220 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W00 was 15.9125
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W01 was 9.28567 per frame over 362 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W01 was 12.0399
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W02 was 8.91149 per frame over 313 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W02 was 11.0817
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W03 was 12.1033 per frame over 282 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W03 was 13.4543
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W04 was 12.4789 per frame over 237 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W04 was 12.6375
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W05 was 14.5207 per frame over 125 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W05 was 14.6278
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W06 was 21.1168 per frame over 275 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W06 was 13.9524
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W07 was 13.8455 per frame over 267 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W07 was 13.9103
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W08 was 12.8496 per frame over 125 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W08 was 12.6127
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 190'th file, average UBM likelihood over 239 frames is -94.9033
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0387W09 was 14.13 per frame over 218 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0387W09 was 12.1752
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W00 was 11.9627 per frame over 252 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W00 was 12.4497
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W01 was 13.2793 per frame over 163 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W01 was 11.9819
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W02 was 9.80631 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W02 was 11.5144
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W03 was 9.14908 per frame over 239 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W03 was 13.0234
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W04 was 11.7917 per frame over 231 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W04 was 13.6987
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W05 was 17.3943 per frame over 275 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W05 was 11.5954
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W06 was 9.18128 per frame over 246 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W06 was 11.681
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W07 was 10.2245 per frame over 296 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W07 was 11.8177
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W08 was 8.72214 per frame over 211 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W08 was 12.0393
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 200'th file, average UBM likelihood over 230 frames is -100.209
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0388W09 was 12.4373 per frame over 205 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0388W09 was 11.5505
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W00 was 10.4319 per frame over 165 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W00 was 12.3243
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W01 was 12.1385 per frame over 206 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W01 was 13.1917
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W02 was 9.56665 per frame over 317 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W02 was 12.7209
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W03 was 9.48942 per frame over 326 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W03 was 12.142
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W04 was 10.4162 per frame over 233 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W04 was 12.659
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W05 was 20.2082 per frame over 264 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W05 was 14.078
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W06 was 12.5551 per frame over 224 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W06 was 14.3605
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W07 was 11.5895 per frame over 189 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W07 was 12.8784
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W08 was 10.2579 per frame over 170 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W08 was 11.8295
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0389W09 was 14.8781 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0389W09 was 12.0144
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 210'th file, average UBM likelihood over 297 frames is -103.284
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W00 was 9.78993 per frame over 239 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W00 was 11.1692
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W01 was 9.78016 per frame over 197 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W01 was 12.1466
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W02 was 14.4821 per frame over 114 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W02 was 11.5178
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W03 was 8.11121 per frame over 404 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W03 was 11.3756
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W04 was 9.85506 per frame over 193 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W04 was 11.5711
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W05 was 17.2774 per frame over 270 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W05 was 12.068
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W06 was 7.48503 per frame over 231 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W06 was 10.7127
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W07 was 9.45125 per frame over 288 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W07 was 11.5889
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 220'th file, average UBM likelihood over 280 frames is -94.8445
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W08 was 11.3867 per frame over 196 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W08 was 9.56705
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0390W09 was 14.0741 per frame over 137 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0390W09 was 12.1614
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W00 was 10.8101 per frame over 230 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W00 was 13.4374
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W01 was 12.2553 per frame over 147 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W01 was 11.9311
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W02 was 17.7975 per frame over 265 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W02 was 11.2319
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W03 was 8.65972 per frame over 328 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W03 was 12.3022
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W04 was 17.5442 per frame over 217 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W04 was 13.1175
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W05 was 18.8057 per frame over 173 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W05 was 14.9869
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W06 was 11.5376 per frame over 107 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W06 was 12.4381
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W07 was 13.5372 per frame over 212 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W07 was 13.9936
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W08 was 12.5682 per frame over 179 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W08 was 11.6369
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0391W09 was 11.2809 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0391W09 was 13.585
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W00 was 9.85818 per frame over 297 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W00 was 13.016
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 230'th file, average UBM likelihood over 208 frames is -97.282
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W01 was 13.1302 per frame over 113 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W01 was 13.2854
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W02 was 12.7221 per frame over 211 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W02 was 14.3693
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W03 was 16.3079 per frame over 113 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W03 was 13.8164
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W04 was 11.0806 per frame over 211 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W04 was 14.6339
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W05 was 15.178 per frame over 173 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W05 was 14.9969
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W06 was 11.1128 per frame over 235 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W06 was 13.2949
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W07 was 22.8501 per frame over 254 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W07 was 14.6199
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W08 was 10.2735 per frame over 287 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W08 was 14.3502
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0392W09 was 15.4369 per frame over 190 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0392W09 was 15.2872
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W00 was 11.1499 per frame over 280 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W00 was 11.754
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 240'th file, average UBM likelihood over 227 frames is -96.3615
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W01 was 8.69411 per frame over 360 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W01 was 10.6598
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W02 was 9.0098 per frame over 197 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W02 was 11.866
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W03 was 8.83351 per frame over 246 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W03 was 10.2483
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W04 was 15.2148 per frame over 353 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W04 was 11.1415
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W05 was 12.1754 per frame over 433 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W05 was 13.4828
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W06 was 12.6457 per frame over 247 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W06 was 12.3821
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W07 was 7.84316 per frame over 229 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W07 was 11.3792
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W08 was 10.4182 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W08 was 12.0255
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0393W09 was 13.7639 per frame over 225 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0393W09 was 11.8279
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W00 was 10.1735 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W00 was 12.8902
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 250'th file, average UBM likelihood over 195 frames is -101.109
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W01 was 10.6934 per frame over 197 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W01 was 11.5993
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W02 was 8.81416 per frame over 423 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W02 was 12.1621
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W03 was 11.721 per frame over 172 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W03 was 14.4955
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W04 was 15.6703 per frame over 272 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W04 was 13.7424
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W05 was 12.0341 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W05 was 12.7094
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W06 was 11.6906 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W06 was 12.2249
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W07 was 13.1038 per frame over 193 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W07 was 13.4869
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W08 was 10.3279 per frame over 368 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W08 was 12.2786
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0394W09 was 11.3689 per frame over 210 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0394W09 was 11.1889
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 260'th file, average UBM likelihood over 198 frames is -96.8561
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W00 was 13.8359 per frame over 227 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W00 was 14.3122
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W01 was 10.0392 per frame over 397 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W01 was 13.5456
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W02 was 8.74522 per frame over 186 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W02 was 12.4341
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W03 was 10.4382 per frame over 327 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W03 was 11.8885
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W04 was 15.3123 per frame over 249 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W04 was 12.8168
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W05 was 11.0546 per frame over 205 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W05 was 11.9095
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W06 was 15.4015 per frame over 320 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W06 was 12.0921
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W07 was 6.57873 per frame over 252 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W07 was 10.5914
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W08 was 11.9592 per frame over 441 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W08 was 14.8749
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0395W09 was 10.6186 per frame over 239 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0395W09 was 11.5162
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W00 was 15.1297 per frame over 195 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W00 was 15.0149
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 270'th file, average UBM likelihood over 240 frames is -98.1606
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W01 was 14.384 per frame over 199 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W01 was 16.2662
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W02 was 12.9418 per frame over 269 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W02 was 14.1817
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W03 was 11.6892 per frame over 331 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W03 was 13.9271
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W04 was 31.4095 per frame over 281 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W04 was 15.1513
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W05 was 14.4885 per frame over 305 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W05 was 14.3568
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W06 was 13.6322 per frame over 299 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W06 was 13.7571
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W07 was 16.7845 per frame over 308 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W07 was 14.0677
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W08 was 16.6249 per frame over 243 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W08 was 16.2074
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0396W09 was 15.1533 per frame over 209 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0396W09 was 12.1498
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W00 was 10.0085 per frame over 198 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W00 was 11.9373
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W01 was 10.6038 per frame over 336 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W01 was 11.1017
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 280'th file, average UBM likelihood over 237 frames is -103.964
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W02 was 11.2802 per frame over 230 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W02 was 10.8858
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W03 was 8.94403 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W03 was 11.0588
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W04 was 10.1294 per frame over 252 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W04 was 11.6449
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W05 was 10.0241 per frame over 258 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W05 was 12.1546
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W06 was 15.9169 per frame over 329 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W06 was 11.7709
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W07 was 12.629 per frame over 263 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W07 was 11.9437
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W08 was 12.1289 per frame over 226 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W08 was 11.2288
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0397W09 was 16.6304 per frame over 228 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0397W09 was 12.7755
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W00 was 9.17894 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W00 was 11.8058
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 290'th file, average UBM likelihood over 201 frames is -102.696
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W01 was 13.5861 per frame over 168 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W01 was 13.547
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W02 was 15.0749 per frame over 328 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W02 was 13.4694
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W03 was 8.55806 per frame over 328 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W03 was 12.0569
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W04 was 12.113 per frame over 255 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W04 was 12.7557
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W05 was 21.0423 per frame over 207 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W05 was 12.9983
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W06 was 6.75823 per frame over 441 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W06 was 10.5018
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W07 was 8.32506 per frame over 398 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W07 was 11.5752
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 300'th file, average UBM likelihood over 255 frames is -96.4576
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W08 was 10.3778 per frame over 253 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W08 was 11.2288
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0398W09 was 14.026 per frame over 285 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0398W09 was 14.3872
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W00 was 13.7764 per frame over 237 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W00 was 15.3407
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W01 was 13.184 per frame over 217 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W01 was 14.0841
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W02 was 14.9101 per frame over 137 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W02 was 13.756
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W03 was 15.1674 per frame over 192 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W03 was 16.2616
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W04 was 13.7303 per frame over 280 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W04 was 13.8925
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W05 was 16.0234 per frame over 102 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W05 was 14.3235
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W06 was 19.6491 per frame over 231 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W06 was 13.4619
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W07 was 13.1386 per frame over 151 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W07 was 12.4351
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 310'th file, average UBM likelihood over 189 frames is -96.4799
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W08 was 17.451 per frame over 316 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W08 was 14.2771
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0399W09 was 17.3083 per frame over 190 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0399W09 was 13.4586
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W00 was 9.85841 per frame over 201 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W00 was 12.7843
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W01 was 10.7471 per frame over 369 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W01 was 15.2033
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W02 was 9.56756 per frame over 306 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W02 was 11.3937
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W03 was 13.0216 per frame over 83 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W03 was 12.1707
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W04 was 8.97239 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W04 was 12.5754
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W05 was 12.4833 per frame over 156 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W05 was 13.7246
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W06 was 12.8319 per frame over 212 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W06 was 12.0577
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W07 was 13.2399 per frame over 154 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W07 was 13.9254
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W08 was 8.94821 per frame over 192 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W08 was 12.3493
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0400W09 was 12.3164 per frame over 194 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0400W09 was 12.3719
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W00 was 12.3753 per frame over 255 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W00 was 13.1579
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W01 was 11.563 per frame over 218 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W01 was 15.0937
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W02 was 17.5354 per frame over 192 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W02 was 15.6486
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 320'th file, average UBM likelihood over 352 frames is -98.6227
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W03 was 11.6505 per frame over 239 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W03 was 14.2896
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W04 was 21.7995 per frame over 306 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W04 was 13.4716
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W05 was 12.4243 per frame over 257 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W05 was 14.1388
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W06 was 13.499 per frame over 293 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W06 was 13.9605
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W07 was 12.6097 per frame over 226 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W07 was 14.6169
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W08 was 19.2323 per frame over 217 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W08 was 15.2338
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0401W09 was 12.9491 per frame over 220 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0401W09 was 14.6588
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W00 was 13.0848 per frame over 189 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W00 was 13.902
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W01 was 11.6556 per frame over 253 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W01 was 12.9645
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 330'th file, average UBM likelihood over 156 frames is -101.186
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W02 was 16.879 per frame over 169 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W02 was 15.2562
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W03 was 14.919 per frame over 393 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W03 was 12.9644
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W04 was 14.4356 per frame over 387 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W04 was 13.0211
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W05 was 13.5402 per frame over 243 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W05 was 12.678
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W06 was 12.0794 per frame over 276 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W06 was 13.9539
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W07 was 14.6157 per frame over 429 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W07 was 14.3918
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W08 was 14.7781 per frame over 546 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W08 was 13.7673
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0402W09 was 14.8925 per frame over 276 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0402W09 was 12.1435
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 340'th file, average UBM likelihood over 274 frames is -100.701
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W00 was 10.6068 per frame over 352 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W00 was 12.0096
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W01 was 11.8918 per frame over 273 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W01 was 12.8056
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W02 was 11.7039 per frame over 346 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W02 was 12.5626
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W03 was 17.6861 per frame over 100 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W03 was 13.5972
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W04 was 11.3304 per frame over 383 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W04 was 12.3166
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W05 was 14.6104 per frame over 264 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W05 was 12.2715
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W06 was 12.8505 per frame over 188 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W06 was 13.1418
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 350'th file, average UBM likelihood over 223 frames is -97.2503
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W07 was 12.7602 per frame over 177 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W07 was 12.6795
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W08 was 18.1007 per frame over 323 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W08 was 12.2912
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0403W09 was 17.4613 per frame over 228 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0403W09 was 13.6185
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W00 was 12.4317 per frame over 156 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W00 was 15.659
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W01 was 8.3464 per frame over 149 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W01 was 10.98
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W02 was 13.2551 per frame over 248 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W02 was 13.9387
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W03 was 7.76062 per frame over 156 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W03 was 11.8999
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W04 was 17.064 per frame over 249 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W04 was 11.8539
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W05 was 12.5354 per frame over 215 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W05 was 13.4541
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W06 was 15.1685 per frame over 121 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W06 was 14.8531
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W07 was 13.9348 per frame over 267 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W07 was 12.5908
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 360'th file, average UBM likelihood over 274 frames is -100.412
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W08 was 14.8645 per frame over 191 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W08 was 12.8508
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0404W09 was 16.3814 per frame over 187 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0404W09 was 14.0367
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W00 was 9.10436 per frame over 274 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W00 was 11.8669
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W01 was 12.8937 per frame over 198 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W01 was 14.8299
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W02 was 8.71108 per frame over 276 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W02 was 12.3782
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W03 was 16.0944 per frame over 216 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W03 was 14.7825
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W04 was 12.9291 per frame over 116 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W04 was 15.316
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W05 was 12.6586 per frame over 200 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W05 was 13.7232
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W06 was 14.7806 per frame over 133 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W06 was 14.2848
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W07 was 18.0172 per frame over 256 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W07 was 13.5546
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W08 was 13.1435 per frame over 203 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W08 was 14.575
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 370'th file, average UBM likelihood over 271 frames is -97.3232
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0405W09 was 11.3819 per frame over 201 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0405W09 was 12.419
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W00 was 16.0853 per frame over 223 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W00 was 12.5551
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W01 was 11.5624 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W01 was 13.6575
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W02 was 11.1407 per frame over 333 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W02 was 12.6644
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W03 was 8.86831 per frame over 262 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W03 was 11.4081
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W04 was 13.9714 per frame over 238 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W04 was 13.0941
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W05 was 16.0508 per frame over 313 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W05 was 11.5517
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W06 was 9.29859 per frame over 130 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W06 was 11.3492
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W07 was 11.1611 per frame over 225 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W07 was 13.9509
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W08 was 14.3022 per frame over 223 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W08 was 14.0832
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0406W09 was 12.0163 per frame over 240 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0406W09 was 12.103
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 380'th file, average UBM likelihood over 210 frames is -99.3245
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W00 was 10.1486 per frame over 274 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W00 was 12.9329
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W01 was 8.19748 per frame over 263 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W01 was 11.3794
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W02 was 11.4275 per frame over 220 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W02 was 11.5841
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W03 was 18.4069 per frame over 289 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W03 was 13.7022
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W04 was 11.071 per frame over 234 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W04 was 13.554
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W05 was 10.4239 per frame over 267 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W05 was 12.1257
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W06 was 15.9511 per frame over 245 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W06 was 16.0238
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W07 was 11.5622 per frame over 194 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W07 was 13.8322
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W08 was 15.5001 per frame over 311 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W08 was 15.1541
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0407W09 was 16.0354 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0407W09 was 13.3024
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W00 was 9.66471 per frame over 271 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W00 was 12.4365
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 390'th file, average UBM likelihood over 314 frames is -104.098
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W01 was 11.5523 per frame over 279 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W01 was 12.9482
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W02 was 9.49879 per frame over 233 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W02 was 11.5321
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W03 was 7.62004 per frame over 284 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W03 was 11.5777
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W04 was 9.21788 per frame over 231 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W04 was 11.6007
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W05 was 8.46146 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W05 was 10.8582
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W06 was 14.3312 per frame over 311 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W06 was 11.6186
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W07 was 9.79748 per frame over 188 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W07 was 13.9222
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W08 was 11.0191 per frame over 204 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W08 was 12.4979
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0408W09 was 11.7688 per frame over 231 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0408W09 was 11.9864
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 400'th file, average UBM likelihood over 285 frames is -99.2392
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W00 was 13.4647 per frame over 210 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W00 was 13.0391
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W01 was 21.4182 per frame over 192 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W01 was 16.0858
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W02 was 11.5074 per frame over 202 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W02 was 12.8576
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W03 was 11.3291 per frame over 386 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W03 was 12.0999
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W04 was 11.2745 per frame over 163 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W04 was 12.8622
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W05 was 22.1002 per frame over 269 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W05 was 14.9824
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W06 was 12.287 per frame over 248 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W06 was 12.6821
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W07 was 15.9512 per frame over 282 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W07 was 13.5168
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W08 was 13.8494 per frame over 243 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W08 was 12.574
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0409W09 was 14.946 per frame over 212 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0409W09 was 12.8426
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 410'th file, average UBM likelihood over 250 frames is -106.35
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W00 was 22.8622 per frame over 314 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W00 was 16.9382
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W01 was 21.3687 per frame over 238 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W01 was 17.0531
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W02 was 19.4387 per frame over 130 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W02 was 16.8186
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W03 was 16.6241 per frame over 290 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W03 was 15.1463
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W04 was 22.9258 per frame over 170 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W04 was 17.5281
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W05 was 28.2498 per frame over 307 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W05 was 15.9688
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W06 was 17.4193 per frame over 421 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W06 was 15.9139
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W07 was 18.0375 per frame over 281 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W07 was 16.2043
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W08 was 19.4263 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W08 was 17.3779
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 420'th file, average UBM likelihood over 125 frames is -104.04
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0410W09 was 23.5646 per frame over 224 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0410W09 was 16.0242
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W00 was 8.53392 per frame over 285 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W00 was 11.2143
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W01 was 9.40452 per frame over 372 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W01 was 12.0467
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W02 was 11.7396 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W02 was 13.9046
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W03 was 16.0016 per frame over 221 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W03 was 14.9969
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W04 was 9.30712 per frame over 278 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W04 was 12.6459
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W05 was 12.864 per frame over 227 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W05 was 14.1215
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 430'th file, average UBM likelihood over 129 frames is -101.381
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W06 was 13.9108 per frame over 241 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W06 was 14.0745
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W07 was 14.8748 per frame over 294 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W07 was 11.4701
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W08 was 9.37415 per frame over 259 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W08 was 12.6584
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0411W09 was 13.9139 per frame over 202 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0411W09 was 12.7022
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W00 was 13.7004 per frame over 250 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W00 was 15.6447
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W01 was 16.2569 per frame over 265 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W01 was 15.9903
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W02 was 12.706 per frame over 157 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W02 was 14.299
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W03 was 20.9012 per frame over 202 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W03 was 17.0089
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W04 was 14.4128 per frame over 252 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W04 was 16.2749
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W05 was 22.5987 per frame over 199 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W05 was 18.0437
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W06 was 22.4902 per frame over 217 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W06 was 17.9195
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W07 was 24.6141 per frame over 277 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W07 was 15.1702
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 440'th file, average UBM likelihood over 210 frames is -106.12
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W08 was 15.6951 per frame over 258 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W08 was 16.801
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0412W09 was 19.507 per frame over 215 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0412W09 was 15.0856
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W00 was 22.9924 per frame over 125 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W00 was 14.2079
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W01 was 10.3659 per frame over 203 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W01 was 12.1812
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W02 was 11.762 per frame over 216 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W02 was 11.9275
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W03 was 8.59017 per frame over 369 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W03 was 11.2804
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W04 was 13.002 per frame over 115 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W04 was 13.1659
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W05 was 13.9016 per frame over 259 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W05 was 11.5907
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W06 was 8.48393 per frame over 337 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W06 was 11.4563
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W07 was 14.7267 per frame over 158 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W07 was 14.0493
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 450'th file, average UBM likelihood over 226 frames is -104.48
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W08 was 13.0176 per frame over 123 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W08 was 12.6192
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0413W09 was 13.2996 per frame over 201 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0413W09 was 11.6646
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W00 was 11.0212 per frame over 129 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W00 was 12.1153
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W01 was 12.064 per frame over 236 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W01 was 12.8614
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W02 was 10.2229 per frame over 312 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W02 was 12.6473
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W03 was 10.3273 per frame over 317 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W03 was 12.333
+LOG (apply-cmvn-sliding[5.5.1068~2-59299]:main():apply-cmvn-sliding.cc:75) Applied sliding-window cepstral mean normalization to 460 utterances, 0 had errors.
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W04 was 13.7577 per frame over 134 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W04 was 13.2439
+LOG (select-voiced-frames[5.5.1068~2-59299]:main():select-voiced-frames.cc:106) Done selecting voiced frames; processed 460 utterances, 0 had errors.
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W05 was 17.5698 per frame over 286 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W05 was 12.1884
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W06 was 10.8175 per frame over 338 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W06 was 12.2014
+LOG (apply-cmvn-sliding[5.5.1068~2-59299]:main():apply-cmvn-sliding.cc:75) Applied sliding-window cepstral mean normalization to 460 utterances, 0 had errors.
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:125) Done 460 files, 0 with errors, average UBM log-likelihood is -98.902 over 109993 frames.
+LOG (select-voiced-frames[5.5.1068~2-59299]:main():select-voiced-frames.cc:106) Done selecting voiced frames; processed 460 utterances, 0 had errors.
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W07 was 10.5749 per frame over 198 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W07 was 12.4076
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W08 was 14.6256 per frame over 142 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W08 was 13.8721
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0414W09 was 11.6032 per frame over 233 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0414W09 was 11.1053
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W00 was 20.1472 per frame over 210 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W00 was 17.4317
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W01 was 19.4248 per frame over 187 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W01 was 17.1887
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W02 was 14.9261 per frame over 140 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W02 was 13.9352
+LOG (fgmm-global-gselect-to-post[5.5.1068~2-59299]:main():fgmm-global-gselect-to-post.cc:148) Done 460 files; 0 had errors.
+LOG (fgmm-global-gselect-to-post[5.5.1068~2-59299]:main():fgmm-global-gselect-to-post.cc:149) Overall loglike per frame is -92.4811 with 2.17127 entries per frame,  over 109993 frames
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W03 was 19.5557 per frame over 220 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W03 was 17.3717
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W04 was 15.6724 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W04 was 14.1531
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W05 was 15.4092 per frame over 271 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W05 was 15.6848
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W06 was 17.1365 per frame over 196 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W06 was 17.1665
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W07 was 22.7222 per frame over 288 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W07 was 13.9859
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W08 was 13.1946 per frame over 414 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W08 was 12.8891
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0415W09 was 14.3325 per frame over 237 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0415W09 was 13.1285
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W00 was 18.603 per frame over 226 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W00 was 16.777
+LOG (scale-post[5.5.1068~2-59299]:main():scale-post.cc:79) Done 460 posteriors;  0 had no scales.
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W01 was 15.6571 per frame over 252 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W01 was 15.0132
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W02 was 15.5001 per frame over 222 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W02 was 15.5978
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W03 was 15.5743 per frame over 360 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W03 was 15.8043
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W04 was 25.3451 per frame over 266 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W04 was 14.7304
+LOG (apply-cmvn-sliding[5.5.1068~2-59299]:main():apply-cmvn-sliding.cc:75) Applied sliding-window cepstral mean normalization to 460 utterances, 0 had errors.
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W05 was 12.8177 per frame over 208 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W05 was 13.4944
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W06 was 13.327 per frame over 279 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W06 was 15.6471
+LOG (select-voiced-frames[5.5.1068~2-59299]:main():select-voiced-frames.cc:106) Done selecting voiced frames; processed 460 utterances, 0 had errors.
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W07 was 18.6084 per frame over 198 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W07 was 17.7002
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W08 was 30.8577 per frame over 189 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W08 was 17.8282
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:68) Auxf change for utterance SP0416W09 was 19.7519 per frame over 232 frames (weighted)
+VLOG[2] (ivector-extract[5.5.1068~2-59299]:~IvectorExtractTask():ivector-extract.cc:77) Ivector norm for utterance SP0416W09 was 14.2597
+LOG (ivector-extract[5.5.1068~2-59299]:main():ivector-extract.cc:314) Done 460 files, 0 with errors.  Total (weighted) frames 109993
+LOG (ivector-extract[5.5.1068~2-59299]:main():ivector-extract.cc:317) Overall average objective-function change from estimating ivector was 13.7823 per frame  over 109993 (weighted) frames.
+# Accounting: time=28 threads=1
+# Ended (code 0) at Thu Mar 16 00:51:19 CST 2023, elapsed time 28 seconds

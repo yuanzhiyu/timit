@@ -1,0 +1,34 @@
+# gmm-gselect --n=20 exp/ivector_gauss512_dim200/extractor/final.dubm "ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split40/26/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split40/26/vad.scp ark:- |" ark:- | fgmm-global-gselect-to-post --min-post=0.025 exp/ivector_gauss512_dim200/extractor/final.ubm "ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split40/26/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split40/26/vad.scp ark:- |" ark,s,cs:- ark:- | scale-post ark:- 1.0 "ark:|gzip -c >exp/ivector_gauss512_dim200/extractor/post.26.gz" 
+# Started at Wed Mar 15 16:45:15 CST 2023
+#
+gmm-gselect --n=20 exp/ivector_gauss512_dim200/extractor/final.dubm 'ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split40/26/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split40/26/vad.scp ark:- |' ark:- 
+fgmm-global-gselect-to-post --min-post=0.025 exp/ivector_gauss512_dim200/extractor/final.ubm 'ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split40/26/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split40/26/vad.scp ark:- |' ark,s,cs:- ark:- 
+scale-post ark:- 1.0 'ark:|gzip -c >exp/ivector_gauss512_dim200/extractor/post.26.gz' 
+add-deltas --delta-window=3 --delta-order=2 scp:data/train/split40/26/feats.scp ark:- 
+apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- 
+select-voiced-frames ark:- scp,s,cs:data/train/split40/26/vad.scp ark:- 
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 0'th file, average UBM likelihood over 254 frames is -100.55
+add-deltas --delta-window=3 --delta-order=2 scp:data/train/split40/26/feats.scp ark:- 
+apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- 
+select-voiced-frames ark:- scp,s,cs:data/train/split40/26/vad.scp ark:- 
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 10'th file, average UBM likelihood over 307 frames is -97.2831
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 20'th file, average UBM likelihood over 205 frames is -100.309
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 30'th file, average UBM likelihood over 230 frames is -97.347
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 40'th file, average UBM likelihood over 309 frames is -103.938
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 50'th file, average UBM likelihood over 155 frames is -99.3585
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 60'th file, average UBM likelihood over 344 frames is -100.204
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 70'th file, average UBM likelihood over 351 frames is -98.0814
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 80'th file, average UBM likelihood over 147 frames is -100.108
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 90'th file, average UBM likelihood over 297 frames is -96.8229
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 100'th file, average UBM likelihood over 371 frames is -97.165
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:114) For 110'th file, average UBM likelihood over 168 frames is -97.2829
+LOG (apply-cmvn-sliding[5.5.1068~1-59299]:main():apply-cmvn-sliding.cc:75) Applied sliding-window cepstral mean normalization to 120 utterances, 0 had errors.
+LOG (apply-cmvn-sliding[5.5.1068~1-59299]:main():apply-cmvn-sliding.cc:75) Applied sliding-window cepstral mean normalization to 120 utterances, 0 had errors.
+LOG (select-voiced-frames[5.5.1068~1-59299]:main():select-voiced-frames.cc:106) Done selecting voiced frames; processed 120 utterances, 0 had errors.
+LOG (select-voiced-frames[5.5.1068~1-59299]:main():select-voiced-frames.cc:106) Done selecting voiced frames; processed 120 utterances, 0 had errors.
+LOG (gmm-gselect[5.5.1068~1-59299]:main():gmm-gselect.cc:125) Done 120 files, 0 with errors, average UBM log-likelihood is -99.1959 over 29795 frames.
+LOG (fgmm-global-gselect-to-post[5.5.1068~1-59299]:main():fgmm-global-gselect-to-post.cc:148) Done 120 files; 0 had errors.
+LOG (fgmm-global-gselect-to-post[5.5.1068~1-59299]:main():fgmm-global-gselect-to-post.cc:149) Overall loglike per frame is -93.0772 with 2.14529 entries per frame,  over 29795 frames
+LOG (scale-post[5.5.1068~1-59299]:main():scale-post.cc:79) Done 120 posteriors;  0 had no scales.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Wed Mar 15 16:45:16 CST 2023, elapsed time 1 seconds
