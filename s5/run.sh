@@ -59,37 +59,4 @@ sid/train_ivector_extractor.sh --cmd "$train_cmd" \
   --ivector-dim $ivector_dim --num-iters 5 $exp/full_ubm/final.ubm data/train \
   $exp/extractor
 
-###### Bookmark: i-vector extraction ######
-#extract train ivector
-sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
-  $exp/extractor data/train $exp/ivector_train
-#extract enroll ivector
-sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
-  $exp/extractor data/test/enroll  $exp/ivector_enroll
-#extract eval ivector
-sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
-  $exp/extractor data/test/eval  $exp/ivector_eval
-
-###### Bookmark: scoring ######
-
-# basic cosine scoring on i-vectors
-local/cosine_scoring.sh data/test/enroll data/test/eval \
-  $exp/ivector_enroll $exp/ivector_eval $trials $exp/scores
-
-# cosine scoring after reducing the i-vector dim with LDA
-local/lda_scoring.sh data/train data/test/enroll data/test/eval \
-  $exp/ivector_train $exp/ivector_enroll $exp/ivector_eval $trials $exp/scores $lda_dim
-
-# cosine scoring after reducing the i-vector dim with PLDA
-local/plda_scoring.sh data/train data/test/enroll data/test/eval \
-  $exp/ivector_train $exp/ivector_enroll $exp/ivector_eval $trials $exp/scores
-
-# print eer
-for i in cosine lda plda; do
-  eer=`compute-eer <(python3 local/prepare_for_eer.py $trials $exp/scores/${i}_scores) 2> /dev/null`
-  printf "%15s %5.2f \n" "$i eer:" $eer
-done > $exp/scores/results.txt
-
-cat $exp/scores/results.txt
-
 exit 0
