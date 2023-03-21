@@ -1,9 +1,0 @@
-# ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_train/ivector.scp ark:- | ivector-mean ark:- exp/ivector_gauss512_dim200/ivector_train/mean.vec 
-# Started at Thu Mar 16 14:04:52 CST 2023
-#
-ivector-mean ark:- exp/ivector_gauss512_dim200/ivector_train/mean.vec 
-ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_train/ivector.scp ark:- 
-LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:90) Processed 4620 iVectors.
-LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:94) Average ratio of iVector to expected length was 0.969941, standard deviation was 0.12078
-# Accounting: time=0 threads=1
-# Ended (code 0) at Thu Mar 16 14:04:52 CST 2023, elapsed time 0 seconds

@@ -26,11 +26,13 @@ feval = open(sys.argv[3], 'w')
 
 for key in dictutt:
   utts = dictutt[key]
-  random.shuffle(utts)
+  # random.shuffle(utts)
   for i in range(0, len(utts)):
     line = utts[i] + ' ' + key
-    if(i < en):
+    if utts[i] == key + 'W00':
       fenroll.write(line + '\n')
+    # if(i < en):
+      # fenroll.write(line + '\n')
     else:
       feval.write(line + '\n')
 

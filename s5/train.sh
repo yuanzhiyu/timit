@@ -21,14 +21,14 @@ rm -rf data/
 guss_num=512
 ivector_dim=200
 lda_dim=50
-nj=10
+nj=6
 exp=exp/ivector_gauss${guss_num}_dim${ivector_dim}
 
 set -e # exit on error
 
 ####### Bookmark: scp prep #######
 
-local/timit_data_prep.sh ./timit_sre/wav
+local/train_timit_data_prep.sh ./timit_sre/wav
 
 ###### Bookmark: MFCC extraction ######
 
@@ -61,5 +61,10 @@ sid/train_full_ubm.sh --nj $nj --cmd "$train_cmd" data/train \
 sid/train_ivector_extractor.sh --cmd "$train_cmd" \
   --ivector-dim $ivector_dim --num-iters 5 $exp/full_ubm/final.ubm data/train \
   $exp/extractor
+
+###### Bookmark: i-vector extraction ######
+#extract train ivector
+sid/extract_ivectors.sh --cmd "$train_cmd" --nj $nj \
+  $exp/extractor data/train $exp/ivector_train
 
 exit 0

@@ -15,22 +15,30 @@
 . ./cmd.sh
 . ./path.sh
 
+if [ "$#" -eq 0 ]; then
+  echo "Error:请输入要识别的用户名."
+  exit 1
+fi
+
+rm -rf timit_sre/wav/tmp/*
+cp -r timit_sre/wav/test/$1 timit_sre/wav/tmp/
+
 guss_num=512
 ivector_dim=200
 lda_dim=50
-nj=6
+nj=1
 exp=exp/ivector_gauss${guss_num}_dim${ivector_dim}
 
 rm -rf $exp/ivector_enroll
 rm -rf $exp/ivector_eval
 rm -rf exp/make_mfcc/test
-rm -rf data/
+rm -rf data/test
 
 set -e # exit on error
 
 ####### Bookmark: scp prep #######
 
-local/timit_data_prep.sh ./timit_sre/wav
+local/evaluate_timit_data_prep.sh ./timit_sre/wav
 
 ###### Bookmark: MFCC extraction ######
 

@@ -1,3 +1,0 @@
-    cosine eer: 10.00 
-       lda eer: 10.00 
-      plda eer: 10.00 
