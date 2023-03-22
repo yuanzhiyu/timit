@@ -1,0 +1,92 @@
+# gmm-gselect --n=30 exp/ivector_gauss512_dim200/diag_ubm/0.dubm "ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split6/6/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split6/6/vad.scp ark:- | subsample-feats --n=5 ark:- ark:- |" "ark:|gzip -c >exp/ivector_gauss512_dim200/diag_ubm/gselect.6.gz" 
+# Started at Wed Mar 22 15:22:12 CST 2023
+#
+gmm-gselect --n=30 exp/ivector_gauss512_dim200/diag_ubm/0.dubm 'ark,s,cs:add-deltas --delta-window=3 --delta-order=2 scp:data/train/split6/6/feats.scp ark:- | apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- | select-voiced-frames ark:- scp,s,cs:data/train/split6/6/vad.scp ark:- | subsample-feats --n=5 ark:- ark:- |' 'ark:|gzip -c >exp/ivector_gauss512_dim200/diag_ubm/gselect.6.gz' 
+select-voiced-frames ark:- scp,s,cs:data/train/split6/6/vad.scp ark:- 
+apply-cmvn-sliding --norm-vars=false --center=true --cmn-window=300 ark:- ark:- 
+add-deltas --delta-window=3 --delta-order=2 scp:data/train/split6/6/feats.scp ark:- 
+subsample-feats --n=5 ark:- ark:- 
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 0'th file, average UBM likelihood over 47 frames is -100.147
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 10'th file, average UBM likelihood over 44 frames is -102.201
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 20'th file, average UBM likelihood over 51 frames is -94.6939
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 30'th file, average UBM likelihood over 33 frames is -99.0698
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 40'th file, average UBM likelihood over 48 frames is -94.0656
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 50'th file, average UBM likelihood over 46 frames is -100.703
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 60'th file, average UBM likelihood over 60 frames is -102.623
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 70'th file, average UBM likelihood over 56 frames is -93.669
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 80'th file, average UBM likelihood over 42 frames is -96.1799
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 90'th file, average UBM likelihood over 46 frames is -95.107
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 100'th file, average UBM likelihood over 39 frames is -100.123
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 110'th file, average UBM likelihood over 40 frames is -95.6564
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 120'th file, average UBM likelihood over 48 frames is -97.9328
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 130'th file, average UBM likelihood over 48 frames is -103.593
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 140'th file, average UBM likelihood over 41 frames is -102.059
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 150'th file, average UBM likelihood over 51 frames is -96.3297
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 160'th file, average UBM likelihood over 38 frames is -95.2383
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 170'th file, average UBM likelihood over 71 frames is -97.3435
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 180'th file, average UBM likelihood over 32 frames is -101.508
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 190'th file, average UBM likelihood over 55 frames is -100.805
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 200'th file, average UBM likelihood over 45 frames is -97.0731
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 210'th file, average UBM likelihood over 55 frames is -99.903
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 220'th file, average UBM likelihood over 55 frames is -96.564
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 230'th file, average UBM likelihood over 43 frames is -98.2218
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 240'th file, average UBM likelihood over 63 frames is -103.19
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 250'th file, average UBM likelihood over 57 frames is -98.701
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 260'th file, average UBM likelihood over 50 frames is -105.086
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 270'th file, average UBM likelihood over 25 frames is -102.407
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 280'th file, average UBM likelihood over 26 frames is -99.7407
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 290'th file, average UBM likelihood over 42 frames is -105.84
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 300'th file, average UBM likelihood over 46 frames is -104.288
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 310'th file, average UBM likelihood over 79 frames is -99.5623
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 320'th file, average UBM likelihood over 41 frames is -106.463
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 330'th file, average UBM likelihood over 37 frames is -100.808
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 340'th file, average UBM likelihood over 80 frames is -99.9965
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 350'th file, average UBM likelihood over 35 frames is -99.6404
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 360'th file, average UBM likelihood over 56 frames is -102.086
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 370'th file, average UBM likelihood over 59 frames is -96.7008
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 380'th file, average UBM likelihood over 52 frames is -102.617
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 390'th file, average UBM likelihood over 58 frames is -97.5214
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 400'th file, average UBM likelihood over 63 frames is -98.2861
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 410'th file, average UBM likelihood over 36 frames is -101.444
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 420'th file, average UBM likelihood over 46 frames is -96.8959
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 430'th file, average UBM likelihood over 37 frames is -99.3345
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 440'th file, average UBM likelihood over 16 frames is -97.7187
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 450'th file, average UBM likelihood over 42 frames is -101.938
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 460'th file, average UBM likelihood over 42 frames is -97.2882
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 470'th file, average UBM likelihood over 44 frames is -100.746
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 480'th file, average UBM likelihood over 56 frames is -96.6119
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 490'th file, average UBM likelihood over 38 frames is -94.5739
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 500'th file, average UBM likelihood over 55 frames is -96.5323
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 510'th file, average UBM likelihood over 35 frames is -99.0439
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 520'th file, average UBM likelihood over 64 frames is -98.4613
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 530'th file, average UBM likelihood over 34 frames is -103.01
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 540'th file, average UBM likelihood over 53 frames is -96.4179
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 550'th file, average UBM likelihood over 39 frames is -102.146
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 560'th file, average UBM likelihood over 39 frames is -97.7148
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 570'th file, average UBM likelihood over 40 frames is -104.102
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 580'th file, average UBM likelihood over 39 frames is -98.1795
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 590'th file, average UBM likelihood over 23 frames is -99.7543
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 600'th file, average UBM likelihood over 65 frames is -99.6632
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 610'th file, average UBM likelihood over 63 frames is -98.743
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 620'th file, average UBM likelihood over 50 frames is -102.475
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 630'th file, average UBM likelihood over 34 frames is -99.7771
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 640'th file, average UBM likelihood over 39 frames is -99.2185
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 650'th file, average UBM likelihood over 50 frames is -100.432
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 660'th file, average UBM likelihood over 45 frames is -100.281
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 670'th file, average UBM likelihood over 39 frames is -101.172
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 680'th file, average UBM likelihood over 59 frames is -99.7999
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 690'th file, average UBM likelihood over 57 frames is -103.689
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 700'th file, average UBM likelihood over 38 frames is -97.6166
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 710'th file, average UBM likelihood over 44 frames is -97.3373
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 720'th file, average UBM likelihood over 44 frames is -98.3793
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 730'th file, average UBM likelihood over 53 frames is -99.4314
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 740'th file, average UBM likelihood over 66 frames is -99.5606
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 750'th file, average UBM likelihood over 39 frames is -100.6
+LOG (apply-cmvn-sliding[5.5.1068~2-59299]:main():apply-cmvn-sliding.cc:75) Applied sliding-window cepstral mean normalization to 770 utterances, 0 had errors.
+LOG (select-voiced-frames[5.5.1068~2-59299]:main():select-voiced-frames.cc:106) Done selecting voiced frames; processed 770 utterances, 0 had errors.
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:114) For 760'th file, average UBM likelihood over 40 frames is -100.916
+LOG (subsample-feats[5.5.1068~2-59299]:main():subsample-feats.cc:115) Processed 770 feature matrices; 0 with errors.
+LOG (subsample-feats[5.5.1068~2-59299]:main():subsample-feats.cc:117) Processed 185042 input frames and 37329 output frames.
+LOG (gmm-gselect[5.5.1068~2-59299]:main():gmm-gselect.cc:125) Done 770 files, 0 with errors, average UBM log-likelihood is -98.5862 over 37329 frames.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Wed Mar 22 15:22:13 CST 2023, elapsed time 1 seconds

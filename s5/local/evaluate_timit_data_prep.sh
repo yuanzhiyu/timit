@@ -2,9 +2,8 @@
 
 . ./path.sh || exit 1;
 
-if [ $# != 1 ]; then
-  echo "Usage: $0 <audio-path>"
-  echo " $0 ~/data/timit/wav"
+if [ $# != 2 ]; then
+  echo "Usage: $0 <audio-path> <target>"
   exit 1;
 fi
 
@@ -18,9 +17,13 @@ mkdir -p $test_dir
 
 
 # find wav audio file for train, dev and test resp.
-find $aishell_audio_dir -iname "*.wav" | grep -i "wav/train" > $train_dir/wav.flist || exit 1;
-find $aishell_audio_dir -iname "*.wav" | grep -i "wav/tmp" > $test_dir/wav.flist || exit 1;
-
+if [ "$2" != "all" ]; then
+  find $aishell_audio_dir -iname "*.wav" | grep -i "wav/train" > $train_dir/wav.flist || exit 1;
+  find $aishell_audio_dir -iname "*.wav" | grep -i "wav/tmp" > $test_dir/wav.flist || exit 1;
+else
+  find $aishell_audio_dir -iname "*.wav" | grep -i "wav/train" > $train_dir/wav.flist || exit 1;
+  find $aishell_audio_dir -iname "*.wav" | grep -i "wav/test" > $test_dir/wav.flist || exit 1;
+fi
 
 # Transcriptions preparation
 for dir in $train_dir $test_dir; do

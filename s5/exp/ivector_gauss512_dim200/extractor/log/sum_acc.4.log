@@ -1,0 +1,11 @@
+# ivector-extractor-sum-accs exp/ivector_gauss512_dim200/extractor/acc.4.1 exp/ivector_gauss512_dim200/extractor/acc.4.2 exp/ivector_gauss512_dim200/extractor/acc.4.3 exp/ivector_gauss512_dim200/extractor/acc.4.4 exp/ivector_gauss512_dim200/extractor/acc.4 
+# Started at Wed Mar 22 15:25:01 CST 2023
+#
+ivector-extractor-sum-accs exp/ivector_gauss512_dim200/extractor/acc.4.1 exp/ivector_gauss512_dim200/extractor/acc.4.2 exp/ivector_gauss512_dim200/extractor/acc.4.3 exp/ivector_gauss512_dim200/extractor/acc.4.4 exp/ivector_gauss512_dim200/extractor/acc.4 
+LOG (ivector-extractor-sum-accs[5.5.1068~2-59299]:main():ivector-extractor-sum-accs.cc:74) Reading stats from exp/ivector_gauss512_dim200/extractor/acc.4.1
+LOG (ivector-extractor-sum-accs[5.5.1068~2-59299]:main():ivector-extractor-sum-accs.cc:74) Reading stats from exp/ivector_gauss512_dim200/extractor/acc.4.2
+LOG (ivector-extractor-sum-accs[5.5.1068~2-59299]:main():ivector-extractor-sum-accs.cc:74) Reading stats from exp/ivector_gauss512_dim200/extractor/acc.4.3
+LOG (ivector-extractor-sum-accs[5.5.1068~2-59299]:main():ivector-extractor-sum-accs.cc:74) Reading stats from exp/ivector_gauss512_dim200/extractor/acc.4.4
+LOG (ivector-extractor-sum-accs[5.5.1068~2-59299]:main():ivector-extractor-sum-accs.cc:83) Wrote summed stats to exp/ivector_gauss512_dim200/extractor/acc.4
+# Accounting: time=0 threads=1
+# Ended (code 0) at Wed Mar 22 15:25:01 CST 2023, elapsed time 0 seconds

@@ -16,12 +16,14 @@
 . ./path.sh
 
 if [ "$#" -eq 0 ]; then
-  echo "Error:请输入要识别的用户名."
+  echo "Error:请输入要识别的用户名(SP0632)或者全部用户(all)."
   exit 1
 fi
 
-rm -rf timit_sre/wav/tmp/*
-cp -r timit_sre/wav/test/$1 timit_sre/wav/tmp/
+if [ "$1" != "all" ]; then
+  rm -rf timit_sre/wav/tmp/*
+  cp -r timit_sre/wav/test/$1 timit_sre/wav/tmp/
+fi
 
 guss_num=512
 ivector_dim=200
@@ -38,7 +40,7 @@ set -e # exit on error
 
 ####### Bookmark: scp prep #######
 
-local/evaluate_timit_data_prep.sh ./timit_sre/wav
+local/evaluate_timit_data_prep.sh ./timit_sre/wav $1
 
 ###### Bookmark: MFCC extraction ######
 

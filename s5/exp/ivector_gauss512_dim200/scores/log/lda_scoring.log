@@ -1,0 +1,23 @@
+# ivector-compute-dot-products "cat 'data/test/test.trials' | cut -d\  --fields=1,2 |" "ark:ivector-transform exp/ivector_gauss512_dim200/ivector_train/transform.mat scp:exp/ivector_gauss512_dim200/ivector_enroll/spk_ivector.scp ark:- | ivector-normalize-length ark:- ark:- |" "ark:ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_eval/ivector.scp ark:- | ivector-transform exp/ivector_gauss512_dim200/ivector_train/transform.mat ark:- ark:- | ivector-normalize-length ark:- ark:- |" exp/ivector_gauss512_dim200/scores/lda_scores 
+# Started at Wed Mar 22 17:10:53 CST 2023
+#
+ivector-compute-dot-products 'cat '\''data/test/test.trials'\'' | cut -d\  --fields=1,2 |' 'ark:ivector-transform exp/ivector_gauss512_dim200/ivector_train/transform.mat scp:exp/ivector_gauss512_dim200/ivector_enroll/spk_ivector.scp ark:- | ivector-normalize-length ark:- ark:- |' 'ark:ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_eval/ivector.scp ark:- | ivector-transform exp/ivector_gauss512_dim200/ivector_train/transform.mat ark:- ark:- | ivector-normalize-length ark:- ark:- |' exp/ivector_gauss512_dim200/scores/lda_scores 
+ivector-transform exp/ivector_gauss512_dim200/ivector_train/transform.mat ark:- ark:- 
+ivector-normalize-length ark:- ark:- 
+ivector-transform exp/ivector_gauss512_dim200/ivector_train/transform.mat scp:exp/ivector_gauss512_dim200/ivector_enroll/spk_ivector.scp ark:- 
+ivector-normalize-length scp:exp/ivector_gauss512_dim200/ivector_eval/ivector.scp ark:- 
+ivector-normalize-length ark:- ark:- 
+LOG (ivector-transform[5.5.1068~2-59299]:main():ivector-transform.cc:91) Processed 30 iVectors.
+LOG (ivector-transform[5.5.1068~2-59299]:main():ivector-transform.cc:99) Norm of mean was 8.47467 (should be close to zero), length divided by sqrt(dim) was 1.443 (should probably be close to one)
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:90) Processed 30 iVectors.
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:94) Average ratio of iVector to expected length was 1.86525, standard deviation was 0.198661
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:90) Processed 30 iVectors.
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:94) Average ratio of iVector to expected length was 0.687544, standard deviation was 0.0633618
+LOG (ivector-transform[5.5.1068~2-59299]:main():ivector-transform.cc:91) Processed 30 iVectors.
+LOG (ivector-transform[5.5.1068~2-59299]:main():ivector-transform.cc:99) Norm of mean was 8.00728 (should be close to zero), length divided by sqrt(dim) was 1.48045 (should probably be close to one)
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:90) Processed 30 iVectors.
+LOG (ivector-normalize-length[5.5.1068~2-59299]:main():ivector-normalize-length.cc:94) Average ratio of iVector to expected length was 1.85105, standard deviation was 0.21836
+LOG (ivector-compute-dot-products[5.5.1068~2-59299]:main():ivector-compute-dot-products.cc:108) Mean dot-product was 18.7693, standard deviation was 10.829
+LOG (ivector-compute-dot-products[5.5.1068~2-59299]:main():ivector-compute-dot-products.cc:111) Processed 900 trials 0 had errors.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Wed Mar 22 17:10:53 CST 2023, elapsed time 0 seconds
