@@ -1,7 +1,0 @@
-# fgmm-global-to-gmm exp/ivector_gauss512_dim200/extractor/final.ubm exp/ivector_gauss512_dim200/extractor/final.dubm 
-# Started at Wed Mar 22 15:22:20 CST 2023
-#
-fgmm-global-to-gmm exp/ivector_gauss512_dim200/extractor/final.ubm exp/ivector_gauss512_dim200/extractor/final.dubm 
-LOG (fgmm-global-to-gmm[5.5.1068~2-59299]:main():fgmm-global-to-gmm.cc:58) Written diagonal GMM to exp/ivector_gauss512_dim200/extractor/final.dubm
-# Accounting: time=0 threads=1
-# Ended (code 0) at Wed Mar 22 15:22:20 CST 2023, elapsed time 0 seconds
